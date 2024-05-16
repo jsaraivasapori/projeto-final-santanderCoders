@@ -1,0 +1,7 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: min(500px, 100%);
+  height: min(1024px, 100vh);
+  margin: 0 auto;
+}
