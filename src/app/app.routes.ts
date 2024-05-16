@@ -9,6 +9,7 @@ export const routes: Routes = [
   {
     path: '',
     redirectTo: 'appointments',
+    pathMatch: 'full'
   },
   {
     path: 'auth',
