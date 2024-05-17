@@ -31,7 +31,7 @@ import { ConfirmationModalComponent } from '../../../../commons/confirmation-mod
     MatCardModule,
     MatButtonModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
   ],
 })
 export class UserdashboardComponent implements OnInit, OnDestroy {
@@ -63,8 +63,7 @@ export class UserdashboardComponent implements OnInit, OnDestroy {
     private dashboardService: DashboardService,
     private dialog: MatDialog,
     private route: ActivatedRoute,
-    private router: Router,
-   
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -117,10 +116,13 @@ export class UserdashboardComponent implements OnInit, OnDestroy {
       });
   }
 
-  redirectToAdd():void{
-    this.router.navigate(['appointments','add'])
+  redirectToAdd(): void {
+    this.router.navigate(['appointments', 'add']);
   }
 
+  editProduct(id: string) {
+    this.router.navigate(['products', 'add', id]);
+  }
 
   ngOnDestroy(): void {
     this.ngUnsubscribe.next(true);

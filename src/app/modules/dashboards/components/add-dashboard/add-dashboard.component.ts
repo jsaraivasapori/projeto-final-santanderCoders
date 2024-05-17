@@ -47,11 +47,11 @@ export class AddDashboardComponent {
 
   buildForm(): void {
     this.form = new FormGroup({
-      specialty: new FormControl(null, [Validators.required]),
-      doctor: new FormControl(null, [Validators.required]),
-      date: new FormControl(null, [Validators.required]),
-      time: new FormControl(null, [Validators.required]),
-      obs: new FormControl(null, [Validators.required]),
+      specialty: new FormControl('', [Validators.required]),
+      doctor: new FormControl('', [Validators.required]),
+      date: new FormControl('', [Validators.required]),
+      time: new FormControl('', [Validators.required]),
+      obs: new FormControl(''),
     });
   }
 
@@ -78,6 +78,7 @@ export class AddDashboardComponent {
     }
 
     this.createAppointments(appointment);
+    this.router.navigate(['appointments', 'user']);
   }
 
   createAppointments(appointment: Appointment): void {
