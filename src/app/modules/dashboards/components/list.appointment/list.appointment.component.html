@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    @for(appointment of Appointments; track appointment.name){
+    <div class="col-8">
+      <mat-card class="card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ appointment.specialty }} </mat-card-title>
+          <mat-card-subtitle class="mb-4"
+            >{{ appointment.doctor }}
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ appointment.date }}</p>
+          <p>{{ appointment.time }}</p>
+          <p>{{ appointment.obs }}</p>
+          <p>{{ appointment.status }}</p>
+        </mat-card-content>
+        <mat-card-actions class="d-flex justify-content-end">
+          <button mat-stroked-button color="primary">EDITAR</button>
+          <button
+            mat-stroked-button
+            color="warn"
+            (click)="onDelete(appointment.id)"
+          >
+            Excluir
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    } @empty {
+    <div class="col-12" text-center>Você não possui agendamentos.</div>
+    }
+  </div>
+</div>
