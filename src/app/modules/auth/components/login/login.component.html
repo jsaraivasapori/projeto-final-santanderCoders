@@ -1,31 +1,36 @@
-<div class="container">
-  <h1 class="mt-5 text-center">Login</h1>
-  <form class="mx-auto" >
-    <div class="row mb-3">
-      <div class="col-md-4 offset-md-4">
-        <mat-form-field appearance="outline">
-          <mat-label>E-mail</mat-label>
-          <input matInput formControlName="email" />
-          <mat-error>Um e-mail válido precisa ser informado</mat-error>
-        </mat-form-field>
+<div class="d-flex justify-content-center align-items-center vh-100">
+  
+  <div class="container">
+    <h1 class="mt-5 text-center">Login</h1>
+    <form>
+      <div class="row mb-3 d-flex justify-content-center align-items-center">
+        <div class="col-md-6 ">
+          <mat-form-field appearance="outline">
+            <mat-label>E-mail</mat-label>
+            <input matInput />
+            <mat-error>Um e-mail válido precisa ser informado</mat-error>
+          </mat-form-field>
+        </div>
       </div>
-    </div>
-    <div class="row mb-3">
-      <div class="col-md-4 offset-md-4">
-        <mat-form-field appearance="outline">
-          <mat-label>Senha</mat-label>
-          <input type="password" matInput formControlName="password" />
-        </mat-form-field>
+      <div class="row mb-3 d-flex justify-content-center align-items-center">
+        <div class="col-md-6 ">
+          <mat-form-field appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input type="password" matInput />
+          </mat-form-field>
+        </div>
       </div>
-    </div>
-    <div class="row mb-3">
-      <div class="col-md-4 offset-md-4 d-flex justify-content-between">
-        <button mat-flat-button color="primary">
-          Salvar
-        </button>
-        <button mat-button routerLink="/auth/register">Cadastrar-se</button>
+      <div class="row mb-3 d-flex justify-content-center align-items-btween">
+        <div class="col-md-6  d-flex justify-content-between ">
+          <button mat-flat-button color="primary">
+            Entrar
+          </button>
+          <button class="register" mat-button routerLink="/auth/register">Cadastrar-se</button>
+        </div>
       </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
+
+
 
