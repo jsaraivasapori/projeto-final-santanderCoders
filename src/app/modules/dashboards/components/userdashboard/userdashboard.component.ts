@@ -12,7 +12,7 @@ import { Appointment } from '../../models/appointment.model';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardService } from '../../services/dashboardservice.service';
 import { MatDialog } from '@angular/material/dialog';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ConfirmationModalComponent } from '../../../../commons/confirmation-modal/confirmation-modal.component';
 
 @Component({
@@ -61,11 +61,14 @@ export class UserdashboardComponent implements OnInit, OnDestroy {
 
   constructor(
     private dashboardService: DashboardService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private route: ActivatedRoute,
+    private router: Router,
+   
   ) {}
 
   ngOnInit(): void {
-    // this.getAppointment();
+    this.getAppointment();
   }
 
   getAppointment(): void {
@@ -113,6 +116,11 @@ export class UserdashboardComponent implements OnInit, OnDestroy {
         }
       });
   }
+
+  redirectToAdd():void{
+    this.router.navigate(['appointments','add'])
+  }
+
 
   ngOnDestroy(): void {
     this.ngUnsubscribe.next(true);
