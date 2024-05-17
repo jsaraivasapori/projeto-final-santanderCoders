@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { Router, RouterLink } from '@angular/router';
 import { first } from 'rxjs';
 import { UserCredentials } from '../../models/user-credentials.model';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -21,7 +22,8 @@ import { UserCredentials } from '../../models/user-credentials.model';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    RouterLink,],
+    RouterLink,
+    MatCardModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })

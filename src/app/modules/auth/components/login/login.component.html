@@ -1,36 +1,42 @@
-<div class="d-flex justify-content-center align-items-center vh-100">
+<div class="d-flex justify-content-center  vh-100">
   
-  <div class="container">
-    <h1 class="mt-5 text-center">Login</h1>
-    <form>
-      <div class="row mb-3 d-flex justify-content-center align-items-center">
-        <div class="col-md-6 ">
-          <mat-form-field appearance="outline">
-            <mat-label>E-mail</mat-label>
-            <input matInput />
-            <mat-error>Um e-mail válido precisa ser informado</mat-error>
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="row mb-3 d-flex justify-content-center align-items-center">
-        <div class="col-md-6 ">
-          <mat-form-field appearance="outline">
-            <mat-label>Senha</mat-label>
-            <input type="password" matInput />
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="row mb-3 d-flex justify-content-center align-items-btween">
-        <div class="col-md-6  d-flex justify-content-between ">
-          <button mat-flat-button color="primary">
-            Entrar
-          </button>
-          <button class="register" mat-button routerLink="/auth/register">Cadastrar-se</button>
-        </div>
-      </div>
-    </form>
+  <div class="container ">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+        <mat-card-subtitle>Entre com suas credenciais</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        
+        <form>
+          <div class="row mb-3 d-flex justify-content-center align-items-center">
+            <div class="col-md-6 ">
+              <mat-form-field appearance="outline">
+                <mat-label>E-mail</mat-label>
+                <input matInput />
+                <mat-error>Um e-mail válido precisa ser informado</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row mb-3 d-flex justify-content-center align-items-center">
+            <div class="col-md-6 ">
+              <mat-form-field appearance="outline">
+                <mat-label>Senha</mat-label>
+                <input type="password" matInput />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row mb-3 d-flex justify-content-center align-items-btween">
+            <div class="col-md-6  d-flex justify-content-between ">
+              <button mat-flat-button color="primary">
+                Entrar
+              </button>
+              <button class="register" mat-button routerLink="/auth/register">Cadastrar-se</button>
+            </div>
+          </div>
+        </form>
+      </mat-card-content>
+
+    </mat-card>
   </div>
 </div>
-
-
-
