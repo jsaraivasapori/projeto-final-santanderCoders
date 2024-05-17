@@ -5,6 +5,7 @@ import { LoginComponent } from './modules/auth/components/login/login.component'
 import { UserdashboardComponent } from './modules/dashboards/components/userdashboard/userdashboard.component';
 import { AdmindashboardComponent } from './modules/dashboards/components/admindashboard/admindashboard.component';
 import { DashboardComponent } from './modules/dashboards/dashboard.component';
+import { AddDashboardComponent } from './modules/dashboards/components/add-dashboard/add-dashboard.component';
 
 export const routes: Routes = [
   {
@@ -40,6 +41,10 @@ export const routes: Routes = [
       {
         path: 'user',
         component: UserdashboardComponent,
+      },
+      {
+        path: 'add',
+        component: AddDashboardComponent,
       },
     ],
   },
