@@ -8,7 +8,7 @@ import { UserCredentials } from '../models/user-credentials.model';
   providedIn: 'root'
 })
 export class AuthService {
-  apiUrl = `${environment.API_URL}/auth`
+  apiUrl = `${environment.apiUrl}/auth`
  
 
   constructor(private http: HttpClient) {}
