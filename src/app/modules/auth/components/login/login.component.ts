@@ -52,8 +52,7 @@ export class LoginComponent  implements OnInit{
   })
 }
 
-login() : void{
- 
+login(): void {
   const user: UserCredentials = this.loginForm.getRawValue();
   this.authService
     .login(user)
@@ -67,7 +66,5 @@ login() : void{
         console.log(err);
       },
     });
-
-
 }
 }
