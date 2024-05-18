@@ -1,0 +1,61 @@
+.example-action-buttons {
+  padding-bottom: 20px;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-mdc-form-field + .mat-mdc-form-field {
+  margin-left: 8px;
+}
+
+mat-expansion-panel-header {
+  gap: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-card-header {
+  height: 100%;
+}
+
+.panel-spacing {
+  margin-bottom: 30px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+.mat-card-title {
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.agendamento {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding-top: 25px;
+  padding-right: 10px;
+  padding-bottom: 25px;
+}
+
+@media screen and (max-width: 600px) {
+  .mat-card-title {
+    font-size: 14px;
+  }
+}

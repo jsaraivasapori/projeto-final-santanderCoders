@@ -4,12 +4,14 @@ import { RegisterComponent } from './modules/auth/components/register/register.c
 import { LoginComponent } from './modules/auth/components/login/login.component';
 import { UserdashboardComponent } from './modules/dashboards/components/userdashboard/userdashboard.component';
 import { AdmindashboardComponent } from './modules/dashboards/components/admindashboard/admindashboard.component';
+import { DashboardComponent } from './modules/dashboards/dashboard.component';
+import { AddDashboardComponent } from './modules/dashboards/components/add-dashboard/add-dashboard.component';
 
 export const routes: Routes = [
   {
     path: '',
     redirectTo: 'appointments',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'auth',
@@ -29,15 +31,20 @@ export const routes: Routes = [
 
   {
     path: 'appointments',
+    component: DashboardComponent,
     children: [
       {
         path: 'admin',
-        component:AdmindashboardComponent ,
+        component: AdmindashboardComponent,
       },
 
       {
         path: 'user',
         component: UserdashboardComponent,
+      },
+      {
+        path: 'add',
+        component: AddDashboardComponent,
       },
     ],
   },
