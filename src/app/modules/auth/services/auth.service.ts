@@ -13,7 +13,6 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(payload: UserCredentials): Observable<AuthenticatedUser> {
-    return this.http.post<AuthenticatedUser>(`${this.apiUrl}/login`, payload);
-  }
+ 
+  
 }
