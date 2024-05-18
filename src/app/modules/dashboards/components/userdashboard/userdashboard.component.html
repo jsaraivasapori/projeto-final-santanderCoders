@@ -1,6 +1,8 @@
 <div class="agendamento">
   <div class="example-button-row">
-    <button mat-stroked-button color="primary">Agendar Nova Consulta</button>
+    <button mat-stroked-button color="primary" (click)="redirectToAdd()">
+      Agendar Nova Consulta
+    </button>
   </div>
 </div>
 <div class="container">
@@ -37,7 +39,13 @@
           <p>Status: {{ appointment.status }}</p>
         </mat-card-content>
         <mat-card-actions style="gap: 5px" class="d-flex justify-content-end">
-          <button mat-raised-button color="primary">Editar</button>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="editProduct(appointment.id!)"
+          >
+            Editar
+          </button>
           <button
             mat-stroked-button
             color="warn"

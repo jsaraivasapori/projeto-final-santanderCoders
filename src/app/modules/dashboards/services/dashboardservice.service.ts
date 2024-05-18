@@ -8,7 +8,7 @@ import { Appointment } from '../models/appointment.model';
   providedIn: 'root',
 })
 export class DashboardService {
-  apiUrl = `${environment.apiUrl}/appointments`;
+  apiUrl = `${environment.apiUrl}/appointments/`;
 
   constructor(private http: HttpClient) {}
 
