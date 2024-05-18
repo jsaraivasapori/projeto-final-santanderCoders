@@ -12,6 +12,7 @@ export class DashboardService {
 
   constructor(private http: HttpClient) {}
 
+  
   getAppointment(): Observable<Appointment[]> {
     return this.http.get<Appointment[]>(this.apiUrl);
   }

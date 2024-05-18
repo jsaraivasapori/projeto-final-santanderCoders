@@ -1,17 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import {  
+import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
-  Validators } from '@angular/forms';
+  Validators,
+} from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Router, RouterLink } from '@angular/router';
 import { first } from 'rxjs';
-import { UserCredentials } from '../../models/user-credentials.model';
-import {MatCardModule} from '@angular/material/card';
+import { UserCredentials } from '../../models/user.model';
+import { MatCardModule } from '@angular/material/card';
 import { AuthService } from '../../services/auth.service';
+import { Constants } from '../../../../commons/constants/constants.enum';
+
+
 
 
 
@@ -27,14 +31,14 @@ import { AuthService } from '../../services/auth.service';
     MatCardModule,
     RouterLink],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: '../../auth.component.scss'
 })
 
 export class LoginComponent  implements OnInit{
 
   loginForm!: FormGroup
 
- 
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.buildForm()
@@ -49,9 +53,20 @@ export class LoginComponent  implements OnInit{
 }
 
 login() : void{
-  //Capturar respostas do form
-
-  const user : UserCredentials = this.loginForm.getRawValue()
+ 
+  const user: UserCredentials = this.loginForm.getRawValue();
+  this.authService
+    .login(user)
+    .pipe(first())
+    .subscribe({
+      next: (res) => {
+        localStorage.setItem(Constants.TOKEN_KEY, `Bearer ${res.token}`);
+        this.router.navigate(['']);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
 
 
 }
