@@ -4,6 +4,7 @@ import { DashboardService } from '../../services/dashboardservice.service';
 import {
   FormControl,
   FormGroup,
+  FormsModule,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
@@ -14,6 +15,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { AuthService } from '../../../auth/services/auth.service';
 import { CommonModule } from '@angular/common';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-add-dashboard',
@@ -25,6 +28,8 @@ import { CommonModule } from '@angular/common';
     MatInputModule,
     MatButtonModule,
     CommonModule,
+    MatSelectModule,
+    MatDatepickerModule,
   ],
   templateUrl: './add-dashboard.component.html',
   styleUrl: './add-dashboard.component.scss',
@@ -117,4 +122,7 @@ export class AddDashboardComponent {
     console.log(this.authService.isAdminUser());
     return this.authService.isAdminUser();
   }
+}
+function provideNativeDateAdapter(): import('@angular/core').Provider {
+  throw new Error('Function not implemented.');
 }

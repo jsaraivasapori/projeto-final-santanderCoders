@@ -9,7 +9,7 @@ import { AddDashboardComponent } from './modules/dashboards/components/add-dashb
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'appointments/main',
+    redirectTo: 'auth/login',
     pathMatch: 'full',
   },
   {

@@ -14,6 +14,9 @@ import { User } from '../../models/user.model';
 import { AuthService } from '../../services/auth.service';
 import { first } from 'rxjs';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDialog } from '@angular/material/dialog';
+import { InformationalModalComponent } from '../../../../commons/modals/informational-modal/informational-modal.component';
+import { Constants } from '../../../../commons/constants/constants.enum';
 
 @Component({
   selector: 'app-register',
@@ -34,7 +37,11 @@ import { MatSelectModule } from '@angular/material/select';
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.buildForm();
@@ -59,8 +66,18 @@ export class RegisterComponent implements OnInit {
           this.router.navigate(['auth', 'login']);
         },
         error: (err) => {
-          console.log(err);
+          this.errorDialog(Constants.ERROR, err.error.message);
         },
       });
+  }
+
+  errorDialog(title: string, message: string): void {
+    this.dialog.open(InformationalModalComponent, {
+      data: {
+        title: title,
+        message: message,
+      },
+    });
+    this.dialog.closeAll;
   }
 }
