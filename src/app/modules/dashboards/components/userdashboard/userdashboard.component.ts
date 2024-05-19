@@ -38,26 +38,7 @@ export class UserdashboardComponent implements OnInit, OnDestroy {
   protected ngUnsubscribe = new Subject();
   @ViewChild(MatAccordion) accordion!: MatAccordion;
 
-  appointments?: Appointment[] = [
-    {
-      id: '1',
-      specialty: 'cardio',
-      doctor: 'Rogério Oliveira Dantas',
-      date: '25/04',
-      time: '13:00',
-      obs: 'urgência',
-      status: 'due',
-    },
-    {
-      id: '2',
-      specialty: 'Pediatra',
-      doctor: 'Arthur Oliveira Dantas',
-      date: '25/04',
-      time: '13:00',
-      obs: 'urgência',
-      status: 'due',
-    },
-  ];
+  appointments?: Appointment[];
 
   constructor(
     private dashboardService: DashboardService,
@@ -121,7 +102,7 @@ export class UserdashboardComponent implements OnInit, OnDestroy {
   }
 
   editProduct(id: string) {
-    this.router.navigate(['products', 'add', id]);
+    this.router.navigate(['appointments', 'edit', id]);
   }
 
   ngOnDestroy(): void {
