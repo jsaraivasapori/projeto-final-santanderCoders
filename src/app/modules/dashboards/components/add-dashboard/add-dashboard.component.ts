@@ -12,6 +12,9 @@ import { Appointment } from '../../models/appointment.model';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { AuthService } from '../../../auth/services/auth.service';
+import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-add-dashboard',
   standalone: true,
@@ -21,6 +24,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    CommonModule,
   ],
   templateUrl: './add-dashboard.component.html',
   styleUrl: './add-dashboard.component.scss',
@@ -33,7 +37,8 @@ export class AddDashboardComponent {
   constructor(
     private dashboardService: DashboardService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -78,7 +83,7 @@ export class AddDashboardComponent {
     }
 
     this.createAppointments(appointment);
-    this.router.navigate(['appointments', 'user']);
+    this.router.navigate(['appointments', 'main']);
   }
 
   createAppointments(appointment: Appointment): void {
@@ -87,7 +92,7 @@ export class AddDashboardComponent {
       .pipe(first())
       .subscribe({
         complete: () => {
-          this.router.navigate(['appointments', 'user']);
+          this.router.navigate(['appointments', 'main']);
         },
         error: (err) => {
           console.log(err);
@@ -101,11 +106,15 @@ export class AddDashboardComponent {
       .pipe(first())
       .subscribe({
         complete: () => {
-          this.router.navigate(['appointments', 'user']);
+          this.router.navigate(['appointments', 'main']);
         },
         error: (err) => {
           console.log(err);
         },
       });
+  }
+  isAdminUser(): boolean {
+    console.log(this.authService.isAdminUser());
+    return this.authService.isAdminUser();
   }
 }

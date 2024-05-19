@@ -12,7 +12,6 @@ export class DashboardService {
 
   constructor(private http: HttpClient) {}
 
-  
   getAppointment(): Observable<Appointment[]> {
     return this.http.get<Appointment[]>(this.apiUrl);
   }
@@ -27,5 +26,13 @@ export class DashboardService {
   }
   updateAppointment(id: string, appointment: Appointment): Observable<void> {
     return this.http.put<void>(`${this.apiUrl}/${id}`, appointment);
+  }
+
+  cancelAppointment(id: string): Observable<void> {
+    return this.http.put<void>(`${this.apiUrl}cancel/${id}`, id);
+  }
+
+  doneAppointment(id: string): Observable<void> {
+    return this.http.put<void>(`${this.apiUrl}done/${id}`, id);
   }
 }
