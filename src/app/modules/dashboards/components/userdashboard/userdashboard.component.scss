@@ -1,3 +1,14 @@
+/* Define o background para toda a página */
+body {
+  background: #b9d1ea;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+}
+
 .example-action-buttons {
   padding-bottom: 20px;
 }
@@ -11,6 +22,7 @@
   margin-left: 8px;
 }
 
+/* Estilo para o header do painel de expansão */
 mat-expansion-panel-header {
   gap: 5px;
   display: flex;
@@ -18,26 +30,34 @@ mat-expansion-panel-header {
   align-items: center;
 }
 
+mat-expansion-panel {
+  width: 100%;
+  margin: 0 auto;
+}
+
 mat-card-header {
   height: 100%;
 }
 
 .panel-spacing {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .image-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .image-container img {
   max-width: 100%;
+  max-height: 180px;
   height: auto;
   width: auto;
 }
+
 .mat-card-title {
   text-align: right;
   white-space: nowrap;
@@ -47,15 +67,50 @@ mat-card-header {
 
 .agendamento {
   display: flex;
-  justify-content: right;
+  justify-content: flex-end;
+  padding-top: 20px;
+  padding-right: 30px;
   align-items: center;
-  padding-top: 25px;
-  padding-right: 10px;
-  padding-bottom: 25px;
 }
 
 @media screen and (max-width: 600px) {
   .mat-card-title {
     font-size: 14px;
   }
+  
+  .agendamento {
+    display: flex;
+    justify-content: center;
+    padding-right: 0;
+  }
+
+  .example-button-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .example-button-row button {
+    width: 90%;
+    max-width: 300px;
+  }
+}
+
+.dashboard {
+  background: #b9d1ea;
+  padding: 20px;
+}
+
+img {
+  width: 350px;
+  height: 250px;
+  margin: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
