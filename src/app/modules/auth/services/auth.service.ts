@@ -37,4 +37,14 @@ export class AuthService {
     this.checkAuthStatus();
     this.router.navigate(['auth', 'login']);
   }
+
+  getLoggedUser() : string{
+    const user: User = JSON.parse(localStorage.getItem(Constants.USER) || '');
+    return `${user.role} - ${user.name}`;
+  }
+
+  isAdminUser(): boolean {
+    const user: User = JSON.parse(localStorage.getItem(Constants.USER) || '');
+    return user!.role  === UserRoles.ADMIN;
+  }
 }

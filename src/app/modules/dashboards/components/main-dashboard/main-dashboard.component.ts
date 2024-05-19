@@ -20,6 +20,7 @@ import { Constants } from '../../../../commons/constants/constants.enum';
 import { User } from '../../../auth/models/user.model';
 import { UserRoles } from '../../../auth/constants/user-roles.enum';
 import { InformationalModalComponent } from '../../../../commons/modals/informational-modal/informational-modal.component';
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-main-dashboard',
@@ -55,7 +56,8 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
     private dashboardService: DashboardService,
     private dialog: MatDialog,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private authService: AuthService,
   ) {}
 
   ngOnInit(): void {
@@ -206,9 +208,8 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
     this.ngUnsubscribe.complete();
   }
 
-  userIsAdmin(): boolean {
-    const user: User = JSON.parse(localStorage.getItem(Constants.USER) || '');
-    return user!.role  === UserRoles.ADMIN;
+  isAdminUser(): boolean {
+    return this.authService.isAdminUser();
   }
 
 }

@@ -1,8 +1,8 @@
 <mat-toolbar>
-    <span>Consultas Médicas - ADA - Dashboard</span>
-    <span class="spacer"></span>
-    
-    <button class="me-5" mat-button 
+
+    <mat-toolbar-row>  
+        <span>Consultas Médicas - ADA - Dashboard</span>
+        <span class="spacer"></span>  <button class="me-5" mat-button 
     aria-label="Botão listar consulta" 
     routerLink="/appointments/main">
         Listar
@@ -14,5 +14,8 @@
     (click)="authService.logout()">
         Logout
     </button>
-
+</mat-toolbar-row>
+<mat-toolbar-row>  
+    <p class="user" > {{ authService.getLoggedUser()}} <p>
+</mat-toolbar-row>
 </mat-toolbar>

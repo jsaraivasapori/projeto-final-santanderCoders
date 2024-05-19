@@ -1,4 +1,4 @@
-<div *ngIf="!userIsAdmin()" class="container">
+<div *ngIf="!isAdminUser()" class="container">
 
   <div class="agendamento">
     <div class="example-button-row">
@@ -60,7 +60,7 @@
   </mat-accordion>
 </div>
 
-<div *ngIf="userIsAdmin()" class="container">
+<div *ngIf="isAdminUser()" class="container">
 
   <table mat-table [dataSource]="appointmentsDataSource">
 
