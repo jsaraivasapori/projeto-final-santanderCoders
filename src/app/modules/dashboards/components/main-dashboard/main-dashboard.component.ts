@@ -205,7 +205,7 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
   }
 
   editAppointment(id: string) {
-    this.router.navigate(['appointments', 'add', id]);
+    this.router.navigate(['appointments', 'edit', id]);
   }
 
   ngOnDestroy(): void {
