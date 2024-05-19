@@ -17,8 +17,7 @@ import { CommonModule } from '@angular/common';
 import { ConfirmationModalComponent } from '../../../../commons/modals/confirmation-modal/confirmation-modal.component';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Constants } from '../../../../commons/constants/constants.enum';
-import { User } from '../../../auth/models/user.model';
-import { UserRoles } from '../../../auth/constants/user-roles.enum';
+
 import { InformationalModalComponent } from '../../../../commons/modals/informational-modal/informational-modal.component';
 import { AuthService } from '../../../auth/services/auth.service';
 
@@ -49,15 +48,25 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
 
   appointments?: Appointment[] = [];
 
-  appointmentsDataSource = new MatTableDataSource<Appointment>(this.appointments);
-  displayedColumns: string[] = ['specialty', 'doctor', 'date', 'time', 'obs', 'status', 'actions'];
+  appointmentsDataSource = new MatTableDataSource<Appointment>(
+    this.appointments
+  );
+  displayedColumns: string[] = [
+    'specialty',
+    'doctor',
+    'date',
+    'time',
+    'obs',
+    'status',
+    'actions',
+  ];
 
   constructor(
     private dashboardService: DashboardService,
     private dialog: MatDialog,
-    private route: ActivatedRoute,
+
     private router: Router,
-    private authService: AuthService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -71,7 +80,9 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (response) => {
           this.appointments = response;
-          this.appointmentsDataSource = new MatTableDataSource<Appointment>(this.appointments);
+          this.appointmentsDataSource = new MatTableDataSource<Appointment>(
+            this.appointments
+          );
           console.log(this.appointments);
         },
         error: (err) => {
@@ -108,7 +119,6 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
       });
   }
 
-
   onDone(id: string): void {
     this.dashboardService
       .doneAppointment(id)
@@ -124,7 +134,6 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
   }
 
   setCancelAppointment(id: string): void {
-
     const dialog = this.dialog.open(ConfirmationModalComponent, {
       width: '250px',
       disableClose: true,
@@ -143,11 +152,8 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
       });
   }
 
-
   setDoneAppointment(id: string): void {
-    
-
-  const dialog = this.dialog.open(ConfirmationModalComponent, {
+    const dialog = this.dialog.open(ConfirmationModalComponent, {
       width: '250px',
       disableClose: true,
       data: {
@@ -164,7 +170,6 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
         }
       });
   }
-  
 
   openDialog(id: string): void {
     const dialog = this.dialog.open(ConfirmationModalComponent, {
@@ -211,5 +216,4 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
   isAdminUser(): boolean {
     return this.authService.isAdminUser();
   }
-
 }
