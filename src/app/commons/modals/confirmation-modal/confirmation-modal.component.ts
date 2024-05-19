@@ -11,6 +11,7 @@ import {
 
 interface DialogData {
   id: string;
+  action: string;
 }
 @Component({
   selector: 'app-confirmation-modal',

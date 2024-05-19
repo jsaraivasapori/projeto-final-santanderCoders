@@ -1,1 +1,18 @@
-<p>header works!</p>
+<mat-toolbar>
+    <span>Consultas Médicas - ADA - Dashboard</span>
+    <span class="spacer"></span>
+    
+    <button class="me-5" mat-button 
+    aria-label="Botão listar consulta" 
+    routerLink="/appointments/main">
+        Listar
+    </button>
+
+    <button mat-flat-button 
+    aria-label="Botão logout" 
+    color="primary" 
+    (click)="authService.logout()">
+        Logout
+    </button>
+
+</mat-toolbar>

@@ -78,7 +78,7 @@ export class AddDashboardComponent {
     }
 
     this.createAppointments(appointment);
-    this.router.navigate(['appointments', 'user']);
+    this.router.navigate(['appointments', 'main']);
   }
 
   createAppointments(appointment: Appointment): void {
@@ -87,7 +87,7 @@ export class AddDashboardComponent {
       .pipe(first())
       .subscribe({
         complete: () => {
-          this.router.navigate(['appointments', 'user']);
+          this.router.navigate(['appointments', 'main']);
         },
         error: (err) => {
           console.log(err);
@@ -101,7 +101,7 @@ export class AddDashboardComponent {
       .pipe(first())
       .subscribe({
         complete: () => {
-          this.router.navigate(['appointments', 'user']);
+          this.router.navigate(['appointments', 'main']);
         },
         error: (err) => {
           console.log(err);

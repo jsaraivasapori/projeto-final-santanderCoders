@@ -2,15 +2,14 @@ import { Routes } from '@angular/router';
 import { AuthComponent } from './modules/auth/auth.component';
 import { RegisterComponent } from './modules/auth/components/register/register.component';
 import { LoginComponent } from './modules/auth/components/login/login.component';
-import { UserdashboardComponent } from './modules/dashboards/components/userdashboard/userdashboard.component';
-import { AdmindashboardComponent } from './modules/dashboards/components/admindashboard/admindashboard.component';
+import { MainDashboardComponent } from './modules/dashboards/components/main-dashboard/main-dashboard.component';
 import { DashboardComponent } from './modules/dashboards/dashboard.component';
 import { AddDashboardComponent } from './modules/dashboards/components/add-dashboard/add-dashboard.component';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'appointments',
+    redirectTo: 'appointments/main',
     pathMatch: 'full',
   },
   {
@@ -26,6 +25,7 @@ export const routes: Routes = [
         path: 'login',
         component: LoginComponent,
       },
+      
     ],
   },
 
@@ -34,13 +34,8 @@ export const routes: Routes = [
     component: DashboardComponent,
     children: [
       {
-        path: 'admin',
-        component: AdmindashboardComponent,
-      },
-
-      {
-        path: 'user',
-        component: UserdashboardComponent,
+        path: 'main',
+        component: MainDashboardComponent,
       },
       {
         path: 'add',
