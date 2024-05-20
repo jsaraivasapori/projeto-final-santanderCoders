@@ -216,4 +216,13 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
   isAdminUser(): boolean {
     return this.authService.isAdminUser();
   }
+  
+  getPaserdDate(stringDate: string): string {
+    const date = new Date(stringDate);
+    return date.toLocaleString('pt-br', {
+      day: '2-digit',
+      month: '2-digit',
+      year: '2-digit',
+    });
+  }
 }

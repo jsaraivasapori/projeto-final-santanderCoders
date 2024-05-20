@@ -34,10 +34,12 @@ mat-card-header {
 }
 
 .image-container img {
-  max-width: 100%;
+  max-width: 70%;
   height: auto;
-  width: auto;
+  width: 100%;
+  object-fit: contain;
 }
+
 .mat-card-title {
   text-align: right;
   white-space: nowrap;
@@ -54,6 +56,10 @@ mat-card-header {
   padding-bottom: 25px;
 }
 
+.mat-expansion-panel {
+  max-width: 600px; 
+  margin: auto;
+}
 @media screen and (max-width: 600px) {
   .mat-card-title {
     font-size: 14px;

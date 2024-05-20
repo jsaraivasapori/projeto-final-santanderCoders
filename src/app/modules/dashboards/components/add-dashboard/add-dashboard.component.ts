@@ -122,6 +122,7 @@ export class AddDashboardComponent {
     console.log(this.authService.isAdminUser());
     return this.authService.isAdminUser();
   }
+
 }
 function provideNativeDateAdapter(): import('@angular/core').Provider {
   throw new Error('Function not implemented.');
