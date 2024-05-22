@@ -5,6 +5,7 @@ import { LoginComponent } from './modules/auth/components/login/login.component'
 import { MainDashboardComponent } from './modules/dashboards/components/main-dashboard/main-dashboard.component';
 import { DashboardComponent } from './modules/dashboards/dashboard.component';
 import { AddDashboardComponent } from './modules/dashboards/components/add-dashboard/add-dashboard.component';
+import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -31,6 +32,7 @@ export const routes: Routes = [
   {
     path: 'appointments',
     component: DashboardComponent,
+    canActivate:[authGuard],
     children: [
       {
         path: 'main',
@@ -46,4 +48,8 @@ export const routes: Routes = [
       },
     ],
   },
+  {
+    path:`**`,
+    redirectTo: 'auth/login', 
+  }
 ];

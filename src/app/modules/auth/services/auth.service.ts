@@ -8,7 +8,7 @@ import { Constants } from '../../../commons/constants/constants.enum';
 import { UserRoles } from '../constants/user-roles.enum';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   apiUrl = `${environment.apiUrl}/auth`;
@@ -38,13 +38,13 @@ export class AuthService {
     this.router.navigate(['auth', 'login']);
   }
 
-  getLoggedUser() : string{
+  getLoggedUser(): string {
     const user: User = JSON.parse(localStorage.getItem(Constants.USER) || '');
     return `${user.role} - ${user.name}`;
   }
 
   isAdminUser(): boolean {
     const user: User = JSON.parse(localStorage.getItem(Constants.USER) || '');
-    return user!.role  === UserRoles.ADMIN;
+    return user!.role === UserRoles.ADMIN;
   }
 }
